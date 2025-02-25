@@ -18,9 +18,10 @@ model User {
   id    Int     @id @default(autoincrement())
   userId String @unique
   name    String
-  reportId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  reports     Report[]
+  
 }
 
 model Report {
@@ -32,5 +33,10 @@ model Report {
   coordinates String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
+  userId String
+  User        User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  @@index([userId])
+  @@index([reportId])
+  @@index([userId, reportId])
+  @@index([userId,createdAt])
 }
