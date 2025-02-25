@@ -11,13 +11,12 @@ export const registerReportAsync = (report: Omit<Report, "id">) => {
       id: true,
       updatedAt: true,
     },
-    include: { User: { select: { name: true } } },
   });
 };
 
 export const getReportsAsync = () => {
   return prisma.report.findMany({
     omit: { updatedAt: true, id: true },
-    include: { User: { select: { name: true } } },
+    orderBy: { createdAt: "desc" },
   });
 };

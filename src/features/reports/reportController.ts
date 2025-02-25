@@ -19,6 +19,7 @@ reportController.get("/", async (c) => {
 reportController.post("/", zValidator("json", reportSchema), async (c) => {
   try {
     const data = await c.req.json<Omit<ModelReport, "id">>();
+    console.log(data);
     const report = await registerReportAsync(data);
     return c.json({ message: "Report created", report });
   } catch (error) {

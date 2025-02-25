@@ -21,7 +21,6 @@ model User {
   reportId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  reports   Report[]
 }
 
 model Report {
@@ -33,6 +32,5 @@ model Report {
   coordinates String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId String
-  User        User     @relation(fields: [userId], references: [userId])
+
 }
