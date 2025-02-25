@@ -1,8 +1,6 @@
 import { Hono } from "hono";
 import { Report as ModelReport } from "@prisma/client";
-import { ReportType } from "./types";
 import { getReportsAsync, registerReportAsync } from "./reportServices";
-import { validator } from "hono/validator";
 import { zValidator } from "@hono/zod-validator";
 
 import { reportSchema } from "./reportSchema";

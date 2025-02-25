@@ -10,6 +10,14 @@ export const registerReportAsync = (report: Omit<Report, "id">) => {
     omit: {
       id: true,
       updatedAt: true,
+      userId: true,
+    },
+    include: {
+      User: {
+        select: {
+          name: true,
+        },
+      },
     },
   });
 };
