@@ -1,2 +1,6 @@
 # deps
 node_modules/
+prisma/migrations/migration_lock.toml
+prisma/migrations/20250225022030_init/migration.sql
+.env
+prisma/migrations/20250225032613_init/migration.sql
